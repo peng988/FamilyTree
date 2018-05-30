@@ -17,3 +17,24 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Family(models.Model):
+    
+    my_code123 = models.IntegerField()
+
+    name = models.CharField(max_length=200)
+    sons = models.CharField(max_length=200)
+    wife = models.CharField(max_length=200)
+    father = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    
+    text = models.TextField()
+    date = models.DateTimeField(blank=True, null=True)
+
+    def publish(self):
+        self.date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.title        

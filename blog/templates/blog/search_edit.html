@@ -1,0 +1,77 @@
+    {% extends 'blog/base.html' %}
+
+    {% block content %}
+
+<style>
+		  .ui-autocomplete {
+		    max-height: 150px;
+		    overflow-y: auto;
+		    /* prevent horizontal scrollbar */
+		    overflow-x: hidden;
+		  }
+		  /* IE 6 doesn't support max-height
+		   * we use height instead, but this forces the menu to always be this tall
+		   */
+		    html .ui-autocomplete {
+		    height: 150px;
+		   }
+  </style>
+
+
+
+        <form method="POST" class="post-form">{% csrf_token %}
+            
+            <div style="width:100%;padding-top:50px;">
+               <div class="input-lg"  style="width:80%;float:left;">
+                    {{ form.as_p }}            
+               </div>
+
+               <div style="width:20%;float:right;">   
+               		<button type="submit" class="btn btn-primary  btn-lg btn-block" >查谱</button>
+               </div>                 
+           <div>
+
+        </form>
+
+       
+
+
+        <script>
+
+              $( "#id_m_input" ).autocomplete({  
+                    source: [ "傅履","傅建","付广","付瑛","珉","傅瓒","傅镕","傅荣","傅俊","傅僓","傅伦","傅仙","傅浩","傅镇","傅钺","傅晟","傅昂","傅昇","傅昱","傅旭","傅杲","傅旻","傅钰","傅顺","傅顕","傅文賁","傅文才","傅文光","傅文华","傅大道","傅大本","傅大坤","傅大鼎","傅大观","傅汝弼","傅求弼","傅心弼","傅嗣浚","傅预"]	
+                });
+
+           </script>
+
+
+        <div class="customers" style="width:100%;padding-top:120px;">
+
+        <table style="width:100%;">
+        	{% if familys.count > 0 %} 
+                    <tr>
+                        <th>编号</th>                        
+                        <th>姓名</th>
+                        <th>妻子</th>
+                        <th>父亲</th>
+                        <th>儿子</th>
+                    </tr>
+              {% elif m_start == 0 %}
+
+                      <th>没有发现您要的结果</th>
+                    
+              {% endif %}       
+                     {% for family in familys %}    
+					        <tr class="alt">
+					            <td id="myname">  {{ family.my_code123 }} </td>
+					            <td id="myname">  {{ family.name }} </td>
+					            <td id="mywife">  {{ family.wife }} </td>
+					            <td id="myfather">  {{ family.father }} </td>
+					            <td id="mysons"> {{ family.sons }} </td>
+					        </tr>                         
+                     {% endfor %}
+            </table>
+
+         <div>
+
+    {% endblock %}

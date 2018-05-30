@@ -1,0 +1,82 @@
+
+{% extends 'blog/base.html' %}
+      {% block content %}
+
+
+  <div id="myDiv">
+    <style >
+   
+        #customers {
+            
+            margin:0 10px;
+            width: 100%;text-align:center;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+        }
+
+            #customers td, #customers th {
+               
+                font-size: 2em;
+                border: 1px solid #98bf21;
+                padding: 3px 7px 2px 7px;
+            }
+
+            #customers th {
+                height :50px;
+                font-size: 2em;
+                text-align: center;
+                padding-top: 5px;
+                padding-bottom: 4px;
+                background-color: #A7C942;
+                color: #ffffff;
+            }
+            #customers td {
+                height: 50px;
+            }
+                #customers tr.alt td {
+                height: 50px;
+                color: #000000;
+                background-color: #EAF2D3;
+            }
+    </style>
+
+</div>
+
+
+         <table id="customers">
+
+                    <tr>
+                        <th>编号</th>                        
+                        <th>姓名</th>
+                        <th>妻子</th>
+                        <th>父亲</th>
+                        <th>儿子</th>
+                    </tr>
+
+
+
+
+                        {% for family in familys %}
+
+                        
+    
+
+     
+        <tr class="alt">
+            <td id="myname">  {{ family.my_code123 }} </td>
+            <td id="myname">  {{ family.name }} </td>
+            <td id="mywife">  {{ family.wife }} </td>
+            <td id="myfather">  {{ family.father }} </td>
+            <td id="mysons"> {{ family.sons }} </td>
+        </tr>
+
+  
+
+                           
+                        {% endfor %}
+
+
+        </table>
+
+
+   {% endblock %}

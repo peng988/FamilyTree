@@ -29,6 +29,7 @@
 
     .post-form textarea, .post-form input {
         width: 100%;
+
     }
 
     .top-menu, .top-menu:hover, .top-menu:visited {
@@ -44,4 +45,43 @@
 
     .post h1 a, .post h1 a:visited {
         color: #000000;
+
     }
+
+
+
+   
+        .customers {
+            
+         
+            width: 100%;
+            text-align:center;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+
+            
+        }
+
+            .customers td, .customers th {
+               
+                font-size: 2em;
+                border: 1px solid #98bf21;
+                padding: 3px 7px 2px 7px;
+            }
+
+            .customers th {
+                height :50px;
+                font-size: 2em;
+                text-align: center;
+                padding-top: 5px;
+                padding-bottom: 4px;
+                background-color: #A7C942;
+                color: #ffffff;
+            }
+           
+                #customers tr.alt td {
+                height: 50px;
+                color: #000000;
+                background-color: #EAF2D3;
+            }
+ 
