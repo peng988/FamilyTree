@@ -2,38 +2,23 @@
 
     {% block content %}
 
-<style>
-		  .ui-autocomplete {
-		    max-height: 150px;
-		    overflow-y: auto;
-		    /* prevent horizontal scrollbar */
-		    overflow-x: hidden;
-		  }
-		  /* IE 6 doesn't support max-height
-		   * we use height instead, but this forces the menu to always be this tall
-		   */
-		    html .ui-autocomplete {
-		    height: 150px;
-		   }
-  </style>
 
 
-
-        <form method="POST" class="post-form">{% csrf_token %}
+        <form method="POST" style="display:inline" class="form-horizontal">{% csrf_token %}
             
             <div style="width:100%;padding-top:50px;">
+
                <div class="input-lg"  style="width:80%;float:left;">
                     {{ form.as_p }}            
                </div>
 
-               <div style="width:20%;float:right;">   
-               		<button type="submit" class="btn btn-primary  btn-lg btn-block" >查谱</button>
+               <div style="width:20%;float:right;padding-top:10px;">   
+               		<button type="submit" class="btn btn-primary  btn-block" >查谱</button>
                </div>                 
            <div>
 
         </form>
 
-       
 
 
         <script>
@@ -53,12 +38,12 @@
                         <th>编号</th>                        
                         <th>姓名</th>
                         <th>妻子</th>
+                        <th>子女</th>
                         <th>父亲</th>
-                        <th>儿子</th>
                     </tr>
               {% elif m_start == 0 %}
 
-                      <th>没有发现您要的结果</th>
+                      <th>傅氏家谱收录荆州、仙桃、天门、潜江等地的数据，没有查到您要搜索的信息。申请增加信息，请加傅氏微信群。</th>
                     
               {% endif %}       
                      {% for family in familys %}    

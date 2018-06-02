@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.utils import timezone
 
+import string
+
 from .models import Post
 from .models import Family
 
@@ -60,7 +62,18 @@ def search_new(request):
         form_input = SearchForm(request.POST)
         if form_input.is_valid():
             code123 = form_input.cleaned_data['m_input']
-            familys = Family.objects.filter(name__icontains = code123)
+            
+            T1 = code123.strip('傅')
+           
+            T = T1.strip('付')
+           
+            m = len(T) 
+
+            if m > 0 :
+                familys = Family.objects.filter(name__icontains = T)
+            else:
+                familys = Family.objects.filter(name__icontains = code123)
+            
             return render(request, 'blog/search_edit.html', {'form': form_input,'m_start': 0,'familys': familys}) 
 
     else:

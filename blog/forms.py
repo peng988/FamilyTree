@@ -18,4 +18,4 @@ class FamilyForm(forms.Form):
 class SearchForm(forms.Form):
          
          
-        m_input = forms.CharField(label='', max_length=100)
+        m_input = forms.CharField(label='', max_length=50,widget = forms.TextInput(attrs={'class':'form-control','placeholder':"请输入姓名" }))
